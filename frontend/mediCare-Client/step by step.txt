@@ -1,0 +1,24 @@
+cd frontend
+npm create vite@latest mediCare-Client
+cd mediCare-Client
+npm install
+npm install axios react-router-dom socket.io-client
+npm install -D @tailwindcss/postcss autoprefixer
+npm install tailwindcss @tailwindcss/vite
+
+npm install tailwindcss @tailwindcss/vite
+
+Configure Tailwind v4
+• 	postcss.config.js
+
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+    autoprefixer: {},
+  },
+};
+
+src/index.css
+@import "tailwindcss";
+
+npm run dev
