@@ -23,7 +23,8 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
         if (token) {
-            const newSocket = io("http://localhost:5000", {
+            const socketUrl = import.meta.env.VITE_SOCKET_URL || "http://localhost:5000";
+            const newSocket = io(socketUrl, {
                 auth: { token },
             });
             newSocket.on("online users", setOnlineUsers);
