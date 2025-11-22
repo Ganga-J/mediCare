@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api", // ✅ Matches backend route prefix
+  baseURL: import.meta.env.VITE_API_URL || "https://medicare-backend-j5kv.onrender.com/api", // ✅ Matches backend route prefix
 });
 
 api.interceptors.request.use((config) => {
