@@ -6,8 +6,8 @@
 builder = "NIXPACKS"
 # Build from backend directory as the primary source
 src = "backend/server"
-# Build command: Navigate to frontend, build it, then install backend dependencies
-buildCommand = "cd ../../frontend/mediCare-Client && npm ci && npm run build && cd ../../backend/server && npm ci"
+# Build command: Navigate to frontend, build it, then install backend dependencies (omitting dev deps for production)
+buildCommand = "cd ../../frontend/mediCare-Client && npm ci && npm run build && cd ../../backend/server && npm ci --omit=dev"
 # Start command: Run the backend server from its directory
 startCommand = "npm start"
 
