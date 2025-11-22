@@ -4,12 +4,12 @@
 [build]
 # Use Nixpacks for efficient Node.js builds
 builder = "NIXPACKS"
-# Build from project root to handle both frontend and backend
-src = "."
-# Build command: Install and build frontend, then install backend dependencies
-buildCommand = "cd frontend/mediCare-Client && npm ci && npm run build && cd ../../backend/server && npm ci"
-# Start command: Run the backend server
-startCommand = "cd backend/server && npm start"
+# Build from backend directory as the primary source
+src = "backend/server"
+# Build command: Navigate to frontend, build it, then install backend dependencies
+buildCommand = "cd ../../frontend/mediCare-Client && npm ci && npm run build && cd ../../backend/server && npm ci"
+# Start command: Run the backend server from its directory
+startCommand = "npm start"
 
 [deploy]
 # Health check endpoint (would require adding /api/health route to backend for full monitoring)
