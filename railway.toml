@@ -1,2 +1,21 @@
+# Railway configuration for MediCare MERN application
+# This config optimizes build and deployment for a full-stack app with separate frontend and backend
+
 [build]
-src = "backend/server"
+# Use Nixpacks for efficient Node.js builds
+builder = "NIXPACKS"
+# Build from project root to handle both frontend and backend
+src = "."
+# Build command: Install and build frontend, then install backend dependencies
+buildCommand = "cd frontend/mediCare-Client && npm ci && npm run build && cd ../../backend/server && npm ci"
+# Start command: Run the backend server
+startCommand = "cd backend/server && npm start"
+
+[deploy]
+# Health check endpoint (would require adding /api/health route to backend for full monitoring)
+# healthcheckPath = "/api/health"
+# Restart policy for resilience
+restartPolicy = "ON_FAILURE"
+# Environment variables can be set in Railway dashboard or here if needed
+# [variables]
+# NODE_ENV = "production"
